@@ -19,6 +19,7 @@ def shuffle_data(x_train, y_train):
     shuffle(indices)
     x_train = x_train[indices]
     y_train = y_train[indices]
+    return x_train, y_train
     
 def create_model():
     model_medfact = Sequential()
@@ -42,7 +43,7 @@ y_train = []
 
 embed_text(x_train, y_train, list(df_train.desc), list(df_train.label))
 
-shuffle_data(x_train, y_train)
+x_train, y_train = shuffle_data(x_train, y_train)
 
 x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.2, random_state=50)
 
