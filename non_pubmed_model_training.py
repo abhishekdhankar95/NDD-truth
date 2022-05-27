@@ -35,13 +35,14 @@ def embed_text(x_train, y_train, text_list, label_list=[]):
     clean_text = [p.clean(str(i)) for i in text_list]
     x_train = model.encode(clean_text)
     y_train = np.array(label_list)
+    return x_train, y_train
 
     
 
 x_train = []
 y_train = []
 
-embed_text(x_train, y_train, list(df_train.desc), list(df_train.label))
+x_train, y_train = embed_text(x_train, y_train, list(df_train.desc), list(df_train.label))
 
 x_train, y_train = shuffle_data(x_train, y_train)
 
