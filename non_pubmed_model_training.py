@@ -8,6 +8,7 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.models import Model
 from tensorflow.keras import Sequential
 import tensorflow as tf
+import numpy as np
 
 tf.random.set_seed(42)
 
