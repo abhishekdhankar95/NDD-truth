@@ -40,21 +40,22 @@ def embed_text(x_train, y_train, text_list, label_list=[]):
     return x_train, y_train
 
     
+def train_general_model():
 
-x_train = []
-y_train = []
+  x_train = []
+  y_train = []
 
-x_train, y_train = embed_text(x_train, y_train, list(df_train.desc), list(df_train.label))
+  x_train, y_train = embed_text(x_train, y_train, list(df_train.desc), list(df_train.label))
 
-x_train, y_train = shuffle_data(x_train, y_train)
+  x_train, y_train = shuffle_data(x_train, y_train)
 
-x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.2, random_state=50)
+  x_train, x_val, y_train, y_val = train_test_split(x_train, y_train, test_size=0.2, random_state=50)
 
-model_medfact = create_model()
+  model_medfact = create_model()
 
-BATCH_SIZE = 32
-model_medfact.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0002, clipvalue=1.0), loss=tf.keras.losses.BinaryCrossentropy(from_logits=False), metrics=['acc'])
-model_medfact.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=20, verbose=1, validation_data=(x_val, y_val))
+  BATCH_SIZE = 32
+  model_medfact.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0002, clipvalue=1.0), loss=tf.keras.losses.BinaryCrossentropy(from_logits=False), metrics=['acc'])
+  model_medfact.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=20, verbose=1, validation_data=(x_val, y_val))
 
-model_medfact.save_weights('models/general_model')
+  model_medfact.save_weights('models/general_model/general_model_weights')
 
