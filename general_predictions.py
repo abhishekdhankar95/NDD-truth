@@ -14,4 +14,13 @@ def predictions(model_name: str, text_list: list):
     y_pred = []
     embed_text(x_pred, y_pred, text_list, [])
     y_pred = model.predict()
+    return y_pred
+
+'''
+def test(url):
+    text_list = []
+    extract([url], text_list)
+    pred = predictions("general_model", text_list)
+    return pred[0]
+'''
     
