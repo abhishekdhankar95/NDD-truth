@@ -2,7 +2,7 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.models import Model
 from tensorflow.keras import Sequential
 from non_pubmed_model_training import create_model, embed_text
-from constants import constants
+from constants import global_constants
 
 glob_c = global_constants()
 
