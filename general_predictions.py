@@ -18,7 +18,7 @@ def predictions(model_name: str, text_list: list):
     y_pred = model.predict(x_pred)
     return y_pred
 
-def test_model(url):
+def test_model(url: str):
   if "general_model_weights.index" not in os.listdir(glob_c.model_dir+"general_model/"):
     train_general_model()
   text_list = []
