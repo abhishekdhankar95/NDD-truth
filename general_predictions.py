@@ -27,8 +27,8 @@ def test_model(url: str):
   pred = predictions("general_model/general_model_weights", text_list)
   prediction_label = glob_c.false_news_label_name
   if pred[0][0]>0.208:
-    prediction_label = glob_c.unsure_news_label_name
-  elif pred[0][0]>0.008:
     prediction_label = glob_c.true_news_label_name
+  elif pred[0][0]>0.008:
+    prediction_label = glob_c.unsure_news_label_name
   print("prediction: ", prediction_label, "url: ", url, "pred: ", pred[0][0])
   return (url, prediction_label, pred[0][0])
