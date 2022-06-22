@@ -6,3 +6,4 @@ class global_constants():
       self.prediction_dir = 'predictions/'
       self.true_news_label_name = "true_news"
       self.false_news_label_name = "false_news"
+      self.unsure_news_label_name = "unsure_news"
